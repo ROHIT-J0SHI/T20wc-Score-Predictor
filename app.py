@@ -5,10 +5,14 @@ import os
 
 app = Flask(__name__)
 
-# Load the model
-with open('model\pipe.pkl', 'rb') as model_file:
-    pipe = pickle.load(model_file)
 
+# Assuming 'pipe.pkl' is in the 'model' directory relative to app.py
+model_file_path = os.path.join(os.path.dirname(__file__), 'model', 'pipe.pkl')
+
+# Load the model
+with open(model_file_path, 'rb') as model_file:
+    pipe = pickle.load(model_file)
+    
 # Print the pipeline to debug
 print(pipe)
 
